@@ -2,10 +2,12 @@ class Calculator{
 
   constructor(){
     let calcButtons = document.getElementById('buttons');
-    let buttons=['7','8','9','/','4','5','6','*','1','2','3','-','0','(',')','+'];
+    let buttons=['pi','e','AC','/','7','8','9','*','4','5','6','-','1','2','3','+','0','(',')','='];
     buttons.forEach((button) => {
       let newButton = document.createElement('button');
       newButton.onclick = ()=>{calc.append(button)}
+      if(button=='=')newButton.onclick = ()=>{calc.getResult()}
+      if(button=='AC')newButton.onclick = ()=>{calc.clear()}
       newButton.innerHTML = button
       calcButtons.appendChild(newButton);
     })
@@ -33,7 +35,7 @@ class Calculator{
   }
 
   checkField(field){
-    if(field.match(/[A-Za-z!@#$%^&±]/g))return false
+    if(field.match(/[A-Za-df-hj-oq-z!@#$%^&±]/g))return false
     let count=0;
     field.split('').forEach((item) => {
       if(item=='(')count++;
@@ -71,6 +73,8 @@ class Calculator{
 
     let mass = exp.replace(/(\d)(\-)(\d)/g,"$1+-$3")
     .replace(/(\-\-)/g,"+")
+    .replace(/\e/g,"2.718281")
+    .replace(/\pi/g,"3.141592")
     .split(/([\+\*\/])/g);
 
     for(let i=0;mass.some(elem=>elem==='/'||elem==='*');i++){

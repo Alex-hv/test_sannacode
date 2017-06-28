@@ -14,21 +14,11 @@
   font-size: 12pt;
   border:0;
 }
-.calc .field button{
-  flex:1;
-  background: white;
-  border:0;
-  line-height: 2em;
-  font-size: 12pt;
-}
-.calc .field button:last-child{
-  border-left: 2px solid #dedede;
-}
-.calc .field input:focus, .calc .field button:focus{
+.calc .field input:focus{
   outline: inherit;
 }
 .calc .field button:active{
-  background: #e0e9ff;;
+  background: #e0e9ff;
 }
 
 
