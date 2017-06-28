@@ -2,7 +2,7 @@
   width: 250px;
   margin: 100px auto 0;
   padding: 15px;
-  background: #dedede;
+  background: #c2d3ff;
   border-radius: 5px;
 }
 .calc .field{
@@ -28,7 +28,7 @@
   outline: inherit;
 }
 .calc .field button:active{
-  background: #f2f2f2;
+  background: #e0e9ff;;
 }
 
 
@@ -48,5 +48,5 @@
   outline: inherit;
 }
 .buttons button:active{
-  background: #f2f2f2;
+  background: #e0e9ff;;
 }

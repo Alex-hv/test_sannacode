@@ -13,6 +13,7 @@ class Calculator{
 
   append(item){
     document.getElementById('calc-field').value += item
+    document.getElementById('calc-field').focus();
   }
 
   getResult(){
@@ -23,10 +24,12 @@ class Calculator{
     else{
       alert('Ошибка!');
     }
+    document.getElementById('calc-field').focus();
   }
 
   clear(){
     document.getElementById('calc-field').value = ''
+    document.getElementById('calc-field').focus();
   }
 
   checkField(field){
@@ -69,7 +72,7 @@ class Calculator{
     let mass = exp.replace(/(\d)(\-)(\d)/g,"$1+-$3")
     .replace(/(\-\-)/g,"+")
     .split(/([\+\*\/])/g);
-    
+
     for(let i=0;mass.some(elem=>elem==='/'||elem==='*');i++){
       if(mass[i]=='*'){
         mass.splice(i-1,3,(+mass[i-1]*(+mass[i+1])));
@@ -80,14 +83,10 @@ class Calculator{
         i=0;
       }
     }
-    mass = mass.join('').split(/([\+\-])/g)
-    for(let i=0;mass.some(elem=>elem==='-'||elem==='+');i++){
+    mass = mass.join('').split(/([\+])/g)
+    for(let i=0;mass.some(elem=>elem==='+');i++){
       if(mass[i]=='+'){
         mass.splice(i-1,3,(+mass[i-1]+(+mass[i+1])));
-        i=0;
-      }
-      if(mass[i]=="-"){
-        mass.splice(i-1,3,(+mass[i-1]-(+mass[i+1])));
         i=0;
       }
     }
