@@ -25,6 +25,10 @@ class Calculator{
     }
   }
 
+  clear(){
+    document.getElementById('calc-field').value = ''
+  }
+
   checkField(field){
     if(field.match(/[A-Za-z!@#$%^&±]/g))return false
     let count=0;
