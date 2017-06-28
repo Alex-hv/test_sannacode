@@ -61,7 +61,8 @@ class Calculator{
   }
 
   calculate(exp){
-    let mass = exp.split(/([\+\*\-\/])/g)
+
+    let mass = exp.split(/([\+\*\/])/g)
     for(let i=0;mass.some(elem=>elem==='/'||elem==='*');i++){
       if(mass[i]=='*'){
         mass.splice(i-1,3,(+mass[i-1]*(+mass[i+1])));
@@ -72,6 +73,7 @@ class Calculator{
         i=0;
       }
     }
+    mass = mass.join('').split(/([\+\-])/g)
     for(let i=0;mass.some(elem=>elem==='-'||elem==='+');i++){
       if(mass[i]=='+'){
         mass.splice(i-1,3,(+mass[i-1]+(+mass[i+1])));
