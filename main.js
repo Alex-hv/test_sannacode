@@ -66,7 +66,10 @@ class Calculator{
 
   calculate(exp){
 
-    let mass = exp.split(/([\+\*\/])/g)
+    let mass = exp.replace(/(\d)(\-)(\d)/g,"$1+-$3")
+    .replace(/(\-\-)/g,"+")
+    .split(/([\+\*\/])/g);
+    
     for(let i=0;mass.some(elem=>elem==='/'||elem==='*');i++){
       if(mass[i]=='*'){
         mass.splice(i-1,3,(+mass[i-1]*(+mass[i+1])));
