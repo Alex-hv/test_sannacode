@@ -73,6 +73,8 @@ class Calculator{
 
     let mass = exp.replace(/(\d)(\-)(\d)/g,"$1+-$3")
     .replace(/(\-\-)/g,"+")
+    .replace(/(\*\+)/g,"*")
+    .replace(/(\/\+)/g,"/")
     .replace(/\e/g,"2.718281")
     .replace(/\pi/g,"3.141592")
     .split(/([\+\*\/])/g);
